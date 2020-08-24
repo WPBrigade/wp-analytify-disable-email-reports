@@ -13,10 +13,6 @@
  * @author Analytify
  */
 
-
- // Defining constants
- define( 'WPB_PLUGIN_VERSION', '1.0.0' );
-
  add_action( 'plugins_loaded', 'wpa_disable_emails_reports', 15 );
 
  /**
