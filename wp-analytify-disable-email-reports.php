@@ -17,7 +17,6 @@
  // Defining constants
  define( 'WPB_PLUGIN_VERSION', '1.0.0' );
 
-
  add_action( 'plugins_loaded', 'wpa_disable_emails_reports', 15 );
 
  /**
@@ -30,8 +29,10 @@
 		return;
 	}
 
-	$email_options = get_option('wp-analytify-email');
-	$email_options['disable_email_reports'] = "on";
+	if ( get_option('wp-analytify-email') ) {
+		$email_options = get_option('wp-analytify-email');
+		$email_options['disable_email_reports'] = "on";
 
-	update_option( 'wp-analytify-email', $email_options );
+		update_option( 'wp-analytify-email', $email_options );
+	}
  }
